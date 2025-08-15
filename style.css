@@ -1,0 +1,41 @@
+/**
+ * Theme Name:        Another Step Theme
+ * Theme URI:         https://anotherstep.org/another-step-theme
+ * Description:       Custom theme description...
+ * Version:           1.0.0
+ * Author:            Gregory Rothstein
+ * Author URI:        https://anotherstep.org
+ * Tags:              block-patterns, full-site-editing
+ * Text Domain:       another-step-theme
+ * Domain Path:       /assets/lang
+ * Tested up to:      6.4
+ * Requires at least: 6.2
+ * Requires PHP:      7.4
+ * License:           GNU General Public License v2.0 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out, background-color 0.3s ease, color 0.3s ease;
+}
+
+.fade-in-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse-icon {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.parallax-background {
+  transition: transform 0.3s ease-out;
+}
