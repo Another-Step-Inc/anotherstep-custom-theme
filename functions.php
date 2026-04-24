@@ -33,8 +33,25 @@ function another_step_theme_setup() {
         'flex-width'  => true,
         'flex-height' => true,
     ));
+
+    add_theme_support('post-thumbnails');
 }
 add_action( 'after_setup_theme', 'another_step_theme_setup');
+
+/**
+ * Strip WordPress back to a pure Headless Data Entry tool
+ */
+function purify_wordpress_editor() {
+    // This removes the editor and other bloat from standard Pages
+    // remove_post_type_support('page', 'editor');
+    remove_post_type_support('page', 'thumbnail'); // Hide if using ACF image fields instead
+    remove_post_type_support('page', 'excerpt');
+    remove_post_type_support('page', 'comments');
+    
+    // If you created a "Services" CPT, you can do it there too:
+    // remove_post_type_support('services', 'editor');
+}
+add_action('init', 'purify_wordpress_editor');
 
 function another_step_theme_widgits_init() {
     // Footer Logo & Description Widget Area
